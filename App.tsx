@@ -1,7 +1,6 @@
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-
 type Etudiant = {
   id: string;
   nom: string;
@@ -19,8 +18,7 @@ type BadgeProps = {
 };
 function BadgeStatut({ note }: BadgeProps) {
   const admis = note >= 10;
-
-  return (
+return (
     <View style={[styles.badge,
     admis ? styles.badgeAdmis : styles.badgeAjourne
     ]}>
@@ -28,28 +26,22 @@ function BadgeStatut({ note }: BadgeProps) {
         {admis ? 'Admis' : 'Ajourné'}
       </Text>
     </View>
-  );
+);
 }
 type CarteProps = { etudiant: Etudiant; };
-
 function CarteEtudiant({ etudiant }: CarteProps) {
   const { nom, filiere, note } = etudiant;
-
-  return (
-
-
+return (
     <View style={styles.carte}>
       <View style={styles.enteteCarte}>
         <Text style={styles.nom}>{nom}</Text>
         <BadgeStatut note={note} />
       </View>
-
       <Text style={styles.information}>Filière : {filiere}</Text>
       <Text style={styles.information}>Note : {note}/20</Text>
     </View>
-  );
+);
 }
-
 export default function App() {
   const nombreAdmis = etudiants.filter(e => e.note >= 10).length;
   const total = etudiants.reduce((somme, e) => somme + e.note, 0
@@ -72,7 +64,6 @@ export default function App() {
   );
 }
 const styles = StyleSheet.create({
-
   page: {
     paddingTop: 56,
     paddingBottom: 30,
